@@ -16,14 +16,22 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", async (req, res) => {
   const shortUrl = await shortUrls.find();
-  res.render("index", { shortUrl: shortUrl });
+  res.render("index", { shortUrl: shortUrl }); // passing the object to view
 });
 
 app.post("/shortUrls", async (req, res) => {
   await shortUrls.create({
-    full: req.body.fullUrl,
+    full: req.body.fullURL,
   });
   res.redirect("/");
+});
+
+app.get("/:shortUrls", async (req, res) => {
+  const shortUrl = await shortUrls.findOne({ short: req.params.shortUrls });
+  if (!shortUrl) return res.status(404).send("Not Found");
+  shortUrl.clicks++;
+  shortUrl.save();
+  res.redirect(shortUrl.full);
 });
 
 const port = process.env.port || 3000;

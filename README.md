@@ -1,3 +1,10 @@
 # Url-Shortner-Express
 
-A Url Shortner created using Node Js, Express, EJS and MongoDB
+###A Url Shortner created from scratch using :
+
+- Node Js
+- Express
+- EJS
+- shortId
+- urlEncoded
+- MongoDB

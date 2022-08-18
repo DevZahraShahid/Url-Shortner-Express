@@ -8,11 +8,18 @@
     <title>Document</title>
 </head>
 <body>
+    <nav class="navbar navbar-light" style="background-color: #929fba">
+        <a class="navbar-brand" href="#">
+          URL Shortner
+        </a>
+      </nav>
     <div class="container">
-    <h1>URL Shortner</h1>
     <form action="/shortUrls" method="POST" class="my-4 form-inline">
-        <label for="fullURL" class="sr-only">URL</label>
-        <input class="form-control col mr-4" required placeholder="URL" type="url" name="fullURL" id="fullURL"></input> 
+        <label for="fullURL" class="sr-only">Enter URL: </label>
+        <input class="form-control col mr-4" style="
+        margin-bottom: 20px;
+        margin-top: 10px;
+    " required placeholder="URL" type="url" name="fullURL" id="fullURL"></input> 
         <button class="btn btn-success" type="submit">Shorten</button>
 
     </form>
@@ -25,11 +32,117 @@
             </tr>
         </thead>
         <tbody>
-            <td><a href="https://photocity.photo.com">https://photocity.photo.com</a></td>
-            <td><a href="/photo.com">photo.com</a></td>
-            <td>10</td>
+            <% shortUrl.forEach(shortUrl=>{ %>
+
+            <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="<%= shortUrl.short %> "><%= shortUrl.short %></a></td>
+            <td><%= shortUrl.clicks %></td>
+        </tr>
+        <%})%>
         </tbody>
     </table>
 </div>
+<div class=" my-5">
+    <footer
+            class="text-center text-lg-start text-white"
+            style="width: 100%;background-color: #929fba;position: absolute;bottom: 0;"
+            >
+      <div class="container p-4 pb-0">
+        <section class="">
+          <div class="row">
+  
+            <hr class="w-100 clearfix d-md-none" />
+            <hr class="w-100 clearfix d-md-none" />
+  
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+              <p>
+                <a class="text-white" href="https://github.com/DevZahraShahid/Vidly-CRUD-Express">Vidly</a>
+              </p>
+              <p>
+                <a class="text-white" href="https://github.com/DevZahraShahid/CRUD-MongoDB">MongoCRUD</a>
+              </p>
+            </div>
+  
+            <hr class="w-100 clearfix d-md-none" />
+              <hr class="w-100 clearfix d-md-none" />
+  
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+              <p><i class="fas fa-home mr-3"></i> Lahore, LHE 54000, PK</p>
+              <p><i class="fas fa-envelope mr-3"></i> zashahid45@gmail.com</p>
+               </div>
+  
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Follow Me</h6>
+  
+              <!-- Facebook -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #3b5998"
+                 href="https://www.facebook.com/login/"
+                 role="button"
+                 ><i class="fab fa-facebook-f"></i
+                ></a>
+  
+              <!-- Twitter -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #55acee"
+                 href="https://twitter.com/login"
+                 role="button"
+                 ><i class="fab fa-twitter"></i
+                ></a>
+  
+              <!-- Google -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #dd4b39"
+                 href="https://www.google.com.pk/"
+                 role="button"
+                 ><i class="fab fa-google"></i
+                ></a>
+  
+              <!-- Instagram -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #ac2bac"
+                 href="https://www.instagram.com/accounts/login/"
+                 role="button"
+                 ><i class="fab fa-instagram"></i
+                ></a>
+  
+              <!-- Linkedin -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #0082ca"
+                 href="https://www.linkedin.com/in/zahrashahid/"
+                 role="button"
+                 ><i class="fab fa-linkedin-in"></i
+                ></a>
+              <!-- Github -->
+              <a
+                 class="btn btn-primary btn-floating m-1"
+                 style="background-color: #333333"
+                 href="https://github.com/DevZahraShahid"
+                 role="button"
+                 ><i class="fab fa-github"></i
+                ></a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+           class="text-center p-3"
+           style="background-color: rgba(0, 0, 0, 0.2)"
+           >
+        © 2022 Copyright:
+        <a class="text-white" href="https://github.com/DevZahraShahid"
+           >DevZahraShahid</a
+          >
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
